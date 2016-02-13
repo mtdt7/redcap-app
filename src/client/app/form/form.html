@@ -1,0 +1,81 @@
+<section class="mainbar">
+    <section class="matter">
+        <div class="container">
+            <div class="row">
+                <div class="widget wgreen">
+                    <div class="widget-head">
+                        Please Select an Address
+                    </div>
+                    <div class="widget-content text-center text-info">
+                        <input class="col-xs-12" type="text" g-places-autocomplete ng-model="fc.data" />
+                        <span class="text-danger" ng-if="fc.showWarning">Invalid Address: Please select a location with a street address
+                        </span>
+                    </div>
+                </div>
+                <!-- <pre>{{fc.data | json}}</pre> -->
+
+                <div ng-if="fc.showForm">
+
+                    <div class="col-xs-12">
+                        <label>Name</label>
+                        <input class="col-xs-12" type="text" ng-model="fc.data.name" />
+                    </div>
+                    
+                    <div class="col-xs-6">
+                        <label>Address</label>
+                        <input class="col-xs-12" type="text" ng-model="fc.address" />
+                    </div>
+
+                    <div class="col-xs-6">
+                        <label>City</label>
+                        <input class="col-xs-12" type="text" ng-model="fc.city" />
+                    </div>
+
+                    <div class="col-xs-6">
+                        <label>State</label>
+                        <input class="col-xs-12" type="text" ng-model="fc.state" />
+                    </div>
+
+                    <div class="col-xs-6">
+                        <label>Zip</label>
+                        <input class="col-xs-12" type="text" ng-model="fc.zip" />
+                    </div>
+
+                    <div class="col-xs-6">
+                        <label>Lat</label>
+                        <input class="col-xs-12" type="number" ng-model="fc.lat" />
+                    </div>
+
+                    <div class="col-xs-6">
+                        <label>Lng</label>
+                        <input class="col-xs-12" type="number" ng-model="fc.lng" />
+                    </div>
+
+                    <div class="col-xs-4">
+                        <label>Sales Phone Number</label>
+                        <input class="col-xs-12" type="text" ng-model="fc.data.formatted_phone_number" />
+                    </div>
+
+                    <div class="col-xs-4">
+                        <label>Service Phone Number</label>
+                        <input class="col-xs-12" type="text" ng-model="fc.data.formatted_phone_number" />
+                    </div>
+
+                    <div class="col-xs-4">
+                        <label>Available Twilio Numbers</label>
+                        <button type="button" class="btn btn-default dropdown-block" ng-model="fc.twilioNumber" data-html="1" bs-options="number as number.friendlyName for number in fc.availableNumbers" bs-select>
+                          Action <span class="caret"></span>
+                        </button>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <label>Website URL</label>
+                        <input class="col-xs-12" type="text" ng-model="fc.data.website" />
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
