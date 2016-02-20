@@ -9,7 +9,8 @@
     /* @ngInject */
     function dataservice($http, $q, exception, logger) {
         var service = {
-            getTwilio: getTwilio
+            getTwilio: getTwilio,
+            sendData: sendData
         };
 
         return service;
@@ -28,6 +29,22 @@
 
             function fail(e) {
                 return exception.catcher('XHR Failed for getTwilio')(e);
+            }
+        }
+
+        function sendData(data) {
+            return $http.post('/api/database', {
+                data: data
+            })
+                .then(success)
+                .catch(fail);
+
+            function success(response) {
+                return response.data;
+            }
+
+            function fail(e) {
+                return exception.catcher('Failed')(e);
             }
         }
     }

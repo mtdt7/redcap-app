@@ -5,6 +5,7 @@ var data = require('./data');
 router.get('/people', getPeople);
 router.get('/person/:id', getPerson);
 router.post('/twilio', getTwilio);
+router.post('/database', sendToDB)
 router.get('/*', four0four.notFoundMiddleware);
 
 module.exports = router;
@@ -33,10 +34,15 @@ function getPerson(req, res, next) {
 }
 
 function getTwilio(req, res, next) {
-    console.log(req.body)
+    console.log(client)
     client.availablePhoneNumbers("US").local.list({ nearLatLong: req.body.lat + "," + req.body.lon,
     distance: "500" }, 
     function(err, numbers) {
         res.status(200).send(numbers.availablePhoneNumbers);
     });
+}
+
+function sendToDB(req, res, next) {
+    console.log(req.body)
+    res.status(200).send("SUCCESS")
 }
